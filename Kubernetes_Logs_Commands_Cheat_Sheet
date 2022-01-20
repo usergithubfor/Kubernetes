@@ -1,1 +1,13 @@
+List Kubernetes Pods:
+#kubectl get pods  // default namespace
+#kubectl get pods -n namespace //namespace wise
+#kubectl get pods -A -o wide //for all the pods available
 
+Log Commands:
+#kubectl logs pod-name
+#kubectl logs pod-name-container-name --tail=9 //for multicontainer pods //tail for last 9 lines
+#kubectl logs pods --all-containers //includes all containers logs
+
+Scales down all deployments in a whole namespace:
+#kubectl get deploy -n <namespace> -o name | xargs -I % kubectl scale % --replicas=0 -n <namespace>
+#kubectl scale deploy deployment-name --replicas=up/down(0/6)
